@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+<script type="text/javascript">
+ function nuevaOperacion ()
+ {
+	 var operacion = {
+			 operador1: document.getElementById ("o1").value,
+			 operador2: document.getElementById ("o2").value,
+			 operacion: document.getElementById ("o").value
+	 }
+	 $.ajax({
+	        data:  JSON.stringify (operacion),
+	        url:   'operaciones',
+	        dataType: 'json',
+	        contentType: 'application/json',
+	        type:  'post',
+	        success:  function (response) {
+	          
+				crearFila (response);
+	        }
+	    });
+
+ }
+ 
+ 
+ function listarOperaciones ()
+ {
+	 var tabla = document.getElementById ("tablaOperaciones");
+	 eliminarNodos (tabla)
+	 
+	 var tr = document.createElement ("tr");
+	 var thId = document.createElement ("th");
+	 var thO1 = document.createElement ("th");
+	 var thO2 = document.createElement ("th");
+	 var thO = document.createElement ("th");
+	 var thR = document.createElement ("th");
+	 
+	 
+	 
+	 thId.innerHTML = "Id";
+	 thO1.innerHTML = "Operacion 1";
+	 thO2.innerHTML = "Operacion 2";
+	 thO.innerHTML = "Operacion";
+	 thR.innerHTML = "Resultado";
+	 
+	 
+	 tr.appendChild (thId);
+	 tr.appendChild (thO1);
+	 tr.appendChild (thO2);
+	 tr.appendChild (thO);
+	 tr.appendChild (thR);
+	 
+	 tabla.appendChild (tr);
+	 
+	 $.ajax({
+	        url:   'operaciones',
+	        dataType: 'json',
+	        type:  'get',
+	        success:  function (response) {
+	          for (var i=0;i<response.operaciones.length;i++)
+	        	  {
+						crearFila (response.operaciones[i]);
+	        	  }
+	        }
+	    });
+ }
+ 
+ function crearFila (operacion)
+ {
+	 var tabla = document.getElementById ("tablaOperaciones");
+	 
+	 var tr = document.createElement ("tr");
+	 var tdId = document.createElement ("td");
+	 var tdO1 = document.createElement ("td");
+	 var tdO2 = document.createElement ("td");
+	 var tdO = document.createElement ("td");
+	 var tdR = document.createElement ("td");
+	 var tdBorrar = document.createElement ("td");
+	 var tdModificar = document.createElement ("td");
+	 
+	 var anchorB =  document.createElement ("a");
+	 var anchorM =  document.createElement ("a");
+	 
+	 anchorB.href = "#"
+	 anchorB.innerHTML = "Borrar"
+	 anchorB.idBorrar = operacion.id;
+	 anchorB.onclick = function () {
+		 borrar (this.idBorrar)
+	 }
+	 
+	 anchorM.href = "#"
+		 anchorM.innerHTML = "Modificar"
+		 anchorM.idModificar = operacion.id;
+	 	 anchorM.o1 = operacion.operador1;
+	 	 anchorM.o2 = operacion.operador2;
+	 	 anchorM.o = operacion.operacion;
+		 anchorM.onclick = function () {
+			 modificar (this.idModificar, this.o1, this.o2, this.o)
+		 }
+	 
+	 
+	 tdId.innerHTML = operacion.id;
+	 tdO1.innerHTML = operacion.operador1;
+	 tdO2.innerHTML = operacion.operador2;
+	 tdO.innerHTML = operacion.operacion;
+	 tdR.innerHTML = operacion.resultado;
+	 tdBorrar.appendChild (anchorB);
+	 tdModificar.appendChild (anchorM);
+	 
+	 
+	 tr.appendChild (tdId);
+	 tr.appendChild (tdO1);
+	 tr.appendChild (tdO2);
+	 tr.appendChild (tdO);
+	 tr.appendChild (tdR);
+	 tr.appendChild (tdBorrar);
+	 tr.appendChild (tdModificar);
+	 
+	 tabla.appendChild (tr);
+	 
+ }
+ 
+ function borrar (id)
+ {
+	 $.ajax({
+	      
+	        url:   'operaciones/'+id,
+	        type:  'delete',
+	        success:  function (response) {
+	          
+				listarOperaciones ();
+	        }
+	    });
+ }
+ 
+ function modificar (id, o1, o2, o)
+ {
+	 var input1 = document.getElementById ("o1");
+	 var input2 = document.getElementById ("o2");
+	 var select = document.getElementById ("o");
+	 
+	 input1.value = o1;
+	 input2.value = o2;
+	 
+	 switch (o)
+	 {
+	 case "+":
+		 select[0].selected = true 
+	 break;
+	 case "-":
+		 select[1].selected = true
+		 break;
+	 case "*":
+		 select[2].selected = true 
+	 break;
+	 case "/":
+		 select[3].selected = true
+		 break;
+	 }
+	 
+	 var boton = document.getElementById ("botonIM");
+	 boton.innerHTML = "Modificar";
+	 boton.idM = id;
+	 boton.onclick = function ()
+	 	{
+			putModificar (this.idM);
+ 		}
+ }
+
+function putModificar (id)
+{
+	 var operacion = {
+			 id : id,
+			 operador1: document.getElementById ("o1").value,
+			 operador2: document.getElementById ("o2").value,
+			 operacion: document.getElementById ("o").value
+	 }
+	 $.ajax({
+		   	data:  JSON.stringify (operacion),
+	        url:   'operaciones/' + id,
+	        type:  'put',
+	        dataType: 'json',
+	        contentType: 'application/json',
+	        success:  function (response) {
+	          
+				listarOperaciones ();
+				var boton = document.getElementById ("botonIM");
+				boton.innerHTML ="calcular";
+				 boton.onclick = function ()
+				 	{
+					 nuevaOperacion ();
+					 }
+			}
+				
+	        
+	    });
+	 
+}
+	 
+ 
+
+function eliminarNodos (padre)
+{
+	
+	
+	while (padre.firstChild) {
+	    padre.removeChild(padre.firstChild);
+	}
+}
+
+</script>
+</head>
+<body>
+
+	<div>
+		<table>
+			<tr>
+				<td>Numero 1</td>
+				<td><input id="o1" type="number"></td>
+			<tr>
+			<tr>
+				<td>Numero 2</td>
+				<td><input id="o2" type="number"></td>
+			</tr>
+
+			<tr>
+				<td>Operacion</td>
+				<td><select id="o">
+						<option value="+">Suma</option>
+						<option value="-">Resta</option>
+						<option value="*">Multiplicación</option>
+						<option value="/">División</option>
+				</select></td>
+			</tr>
+		</table>
+
+		<button id="botonIM" onclick="nuevaOperacion()">Calcular</button>
+	</div>
+
+	<div>
+		<table border="1" id="tablaOperaciones">
+			<tr>
+				<th>Id</th>
+				<th>Operando 1</th>
+				<th>Operando 2</th>
+				<th>Operación</th>
+				<th>Resultado</th>
+
+			</tr>
+
+
+
+		</table>
+
+
+
+	</div>
+
+	<button onclick="listarOperaciones()">Listar todas</button>
+
+</body>
+</html>

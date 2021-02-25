@@ -1,0 +1,32 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>Ej01_Casa</groupId>
+  <artifactId>Ej01_Casa</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  
+  <properties>
+  <!-- Esto lo hacemos para cambiar la versión de java, tiene
+  	que llamarse exctamente así -->
+  	<maven.compiler.source>1.8</maven.compiler.source>
+  	<maven.compiler.target>1.8</maven.compiler.target>
+  	<!-- Para usar encoding UTF-8 en nuestro proyecto -->
+  	<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+  	<project.build.outputEncoding>UTF-8</project.build.outputEncoding>
+  	<spring.framework.version>4.3.22.RELEASE</spring.framework.version>
+  </properties>
+  <dependencies>
+  	<!-- https://mvnrepository.com/artifact/org.springframework/spring-context -->
+<dependency>
+    <groupId>org.springframework</groupId>
+    <artifactId>spring-context</artifactId>
+    <version>${spring.framework.version}</version>
+</dependency>
+  	<!-- https://mvnrepository.com/artifact/org.springframework/spring-core -->
+<dependency>
+    <groupId>org.springframework</groupId>
+    <artifactId>spring-core</artifactId>
+    <version>${spring.framework.version}</version>
+</dependency>
+  	
+  </dependencies>
+</project>

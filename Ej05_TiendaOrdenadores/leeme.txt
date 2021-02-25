@@ -1,0 +1,4 @@
+Similar a la pizzeria pero esta vez con ordenadores, 
+ademas podremos add varios ordenadores a la compra (carrito)
+antes de darle a pagar. Se iran mostrando todos los ordenadores
+que vayamos comprando.

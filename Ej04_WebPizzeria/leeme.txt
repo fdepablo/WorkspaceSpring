@@ -1,0 +1,12 @@
+Web pizzeria
+	Nos daremos de alta con un usuario desde una pagina login
+	Nos aparecera una pagina donde tendremos que rellenar un
+	formulario con los siguientes campos:
+		Nombre usuario
+		Direccion
+		Tamaño de pizza (radio button)
+		ingredientes pizza (check button)
+		boton pagar
+	Una vez pulsado el boton nos llevará a una pagina de detalle
+	donde mostraremos un resumen de la pizza elegida mas el precio
+	total basado en el tamaño de la pizza y los ingredientes elegidos

@@ -1,0 +1,3 @@
+la caperta webapp equivale a la carpeta Webcontent 
+de nuestro proyecto
+Aqui irian las carpetas WEB-INF o el fichero web.xml

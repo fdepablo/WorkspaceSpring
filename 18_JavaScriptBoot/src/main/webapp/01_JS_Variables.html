@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+
+<script type="text/javascript">
+//Comentario
+//Interpretado
+//Secuencial
+//orientado a objetos por prototipado
+//funcional, orientado a funciones
+//fuertemente NO tipado
+
+//alert("No hay que hacer alerts");
+console.log("Esto es un poco mejor que los alerts");
+
+//Variables
+//podemos guardar cualquier cosa
+//no tienen declaracion
+
+numero1 = 1;
+numero2 = 1.5;
+texto1= 'hola';
+texto2= "Adios";
+boolean1 = true;
+boolean2 = false;
+boolean3 = "Esto no es un boolean";
+console.log(numero1);
+console.log(numero2);
+console.log(texto1);
+console.log(texto2);
+console.log(boolean1);
+console.log(boolean2);
+console.log(boolean3);
+
+var dato = 5;
+var dato = 7;//estoy redefiniendo
+var movida;//podemos dejar variables sin declarar
+//el valor sera undefined
+console.log(movida);
+
+var referencia = null;
+//null es un tipo de valor en JS, null indica que la 
+//variable guardará una referencia pero no sabemos a donde
+
+referencia = 7;
+referencia = "Siete";
+referencia = true;
+
+//podemos comprobar los tipos que guarda una variable
+console.log(isNaN(texto1));//is Not a Number
+console.log(isNaN(numero1));
+
+//Otro tipo mejor de funciones pueden ser
+//tipos en js
+//number
+//string
+//boolean
+//undefined
+//object
+if(typeof dato == 'number'){
+	console.log("el dato es un numero");
+}
+if(typeof movida == 'undefined'){
+	console.log("La movida es undefined");
+}
+
+//let es a partir de las ultimas versiones
+let num1 = 5;
+let txt1 = "otro texto";
+//con let no se puede redefinir una variable
+let v1 = 9;
+//let v1 = 7; //esto daria un error
+
+//tambien desde las ultimas versiones constantes
+const PI = 3.1416;
+console.log(PI);
+
+//AMBITO de las variables
+console.log("========================")
+function pruebaVar(){
+	//las variables que no tienen declaracion
+	//(no tienen ni var ni let) son de ambito global
+	variable1 = "hola"
+	//las variables con var su ambito es el de funcion
+	var variable2 = "X representa lo desconocido"
+	console.log(variable1)
+	console.log(variable2)
+	
+	if(2 > 1){
+		var variable3 = "Y se dice Guay en ingles"
+	}
+	
+	console.log(variable3)//notese que llevo un buen rato sin poner ;
+}
+//console.log(variable1);//no existe
+pruebaVar()
+console.log(variable1)
+//console.log(variable2)
+
+
+//LET es basicamente como en java
+//el ambito de LET es el de bloque
+function pruebaLet(){
+	let var1 = 10
+	if(true){
+		let var2 = 20
+	}
+	console.log("var1: " + var1)
+	//console.log("var2: " + var2) CASCA!!
+}
+</script>
+
+<h1> Variables y ambito!! </h1>
+</body>
+</html>

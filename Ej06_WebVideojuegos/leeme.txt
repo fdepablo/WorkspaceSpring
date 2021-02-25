@@ -1,0 +1,11 @@
+Hacer una pagina similar la del ejercicio 11_SpringMVCPeliculasUsuarios
+pero con videojuegos.
+Diferencias:
+	Habra una pagina de listado de videojuegos donde se mostraran datos
+	parciales al videojuego, luego habrá una pagina de detalle donde
+	se mostrará toda la información y donde se podrá modificar
+	Desde el propio listado, habrá un enlace a borrar por cada fila
+	que borrará cada videojuego
+	Desde la pagina de listado habrá un enlace a una pagina de alta
+	donde tendremos un formulario donde podremos dar de alta nuestro
+	videojuego

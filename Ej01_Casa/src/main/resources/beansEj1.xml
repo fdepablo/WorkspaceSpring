@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<!-- Singleton por defecto -->
+	
+	<bean id="casa" class="ejercicio1.Casa">
+		<property name="precio" value="20000"></property>
+		<property name="direccion" ref="direccionCasa"></property>
+		<property name="propietario" ref="propietario"></property>
+		<property name="inquilinos" ref="listaInquilinos"></property>
+		<property name="habitaciones" ref="listaHabitaciones"></property>
+	</bean>
+
+	<bean id="direccionCasa" class="ejercicio1.Direccion">
+		<property name="tipoVia" value="Calle"></property>
+		<property name="nombreVia" value="Hogwarts"></property>
+		<property name="pais" value="Nunca Jamás"></property>
+		<property name="codPostal" value="28068"></property>
+	</bean>
+
+	<bean id="propietario" class="ejercicio1.Persona" scope="singleton">
+		<property name="edad" value="48"></property>
+		<property name="nombre" value="Paco"></property>
+		<property name="peso" value="100"></property>
+		<property name="direccion" ref="direccionPropietario"></property>
+	</bean>
+	
+	<bean id="direccionPropietario" class="ejercicio1.Direccion">
+				<property name="tipoVia" value="Calle"></property>
+				<property name="nombreVia" value="Gran via"></property>
+				<property name="pais" value="España"></property>
+				<property name="codPostal" value="28058"></property>
+			</bean>
+			
+	<bean id="listaHabitaciones" class="java.util.ArrayList">
+	  <constructor-arg>
+        <list>
+         	<ref bean="habitacion1" />
+            <ref bean="habitacion2" />           
+        </list>
+    </constructor-arg>
+	</bean>
+	
+	<bean id="listaInquilinos"  class="java.util.ArrayList">
+	  <constructor-arg>
+        <list>
+            <ref bean="pepe" />
+            <ref bean="marta" />               
+        </list>
+    </constructor-arg>
+	</bean>
+	
+	<bean id="marta" class="ejercicio1.Persona" scope="singleton">
+		<property name="edad" value="25"></property>
+		<property name="nombre" value="Marta"></property>
+		<property name="peso" value="60"></property>
+		<property name="direccion">
+			<bean class="ejercicio1.Direccion">
+				<property name="tipoVia" value="Calle"></property>
+				<property name="nombreVia" value="Manoteras"></property>
+				<property name="pais" value="España"></property>
+				<property name="codPostal" value="28065"></property>
+			</bean>
+		</property>
+	</bean>
+	
+	<bean id="pepe" class="ejercicio1.Persona" scope="singleton">
+		<property name="edad" value="25"></property>
+		<property name="nombre" value="Pepe"></property>
+		<property name="peso" value="78"></property>
+		<property name="direccion">
+			<bean class="ejercicio1.Direccion">
+				<property name="tipoVia" value="Avenida"></property>
+				<property name="nombreVia" value="Perez Segundo"></property>
+				<property name="pais" value="España"></property>
+				<property name="codPostal" value="28001"></property>
+			</bean>
+		</property>
+	</bean>
+	
+	<bean id="habitacion1" class="ejercicio1.Habitacion">
+		<property name="tipo" value="cocina"></property>
+		<property name="area" value="30"></property>
+		<property name="tieneVentana" value="true"></property>
+	</bean>		
+	
+	<bean id="habitacion2" class="ejercicio1.Habitacion">
+		<property name="tipo" value="dormitorio"></property>
+		<property name="area" value="20"></property>
+		<property name="tieneVentana" value="false"></property>
+	</bean>		
+</beans>

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<!-- Spring Expresiones de lenguaje (SpEl)-->
+	
+		
+	<bean id="direccion" class="ejemplo10.Direccion">
+		<property name="tipoVia" value="Piña"></property>
+		<property name="nombreVia" value="Debajo del mar"></property>
+		<property name="cp" value="desconocido"></property>
+		<property name="pais" value="Aguas Internacionales"></property>
+	</bean>
+	
+	<bean id="persona" class="ejemplo10.Persona">
+		<property name="nombre" value="#{'Bob Esponja'}"></property>
+		<property name="edad" value="#{50}"></property>
+		<property name="peso" value="#{78.9}"></property>
+		<property name="casada" value="#{true}"></property>
+		<property name="direccion" value="#{direccion}"></property>
+	</bean>
+
+	<bean id="persona2" class="ejemplo10.Persona">
+		<property name="nombre" value="#{direccion.tipoVia}"></property>
+		<property name="edad" value="#{50}"></property>
+		<property name="peso" value="#{200.0 / 3}"></property>
+		<property name="casada" value="#{5 >= 30}"></property>
+		<property name="direccion" value="#{direccion}"></property>
+	</bean>
+	
+	<bean id="persona3" class="ejemplo10.Persona">
+		<property name="nombre" value="#{direccion.tipoVia.toUpperCase()}"></property>
+		<property name="edad" value="#{new Integer(50)}"></property>
+		<property name="peso" value="#{ T(java.lang.Math).random() * 100.0 }"></property>
+		<property name="casada" value="#{persona2.peso >= 50}"></property>
+		<property name="direccion" value="#{direccion}"></property>
+	</bean>
+</beans>

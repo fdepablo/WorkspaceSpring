@@ -1,0 +1,21 @@
+ CLASES
+ ------
+ 
+ Crear un modelo que encapsule la informaci�n referente a una CASA orientada
+ a su alquiler
+ 
+ La casa podra almacenar lo siguiente:
+ 	- Una Direccion
+ 		- La direccion tendra tipo via, un nombre de via, un cp y un numero
+ 	- Unas habitaciones
+ 		- Las habitaciones tendr�n metros cuadrados, un tipo de habitacion
+ 		 y un numero de habitacion
+ 	- Un propietario
+ 		- Nombre, dni, telefono y Direccion
+ 	- Unos inquilinos
+ 		- Nombre, dni, telefono y Direccion
+ 	- un precio de alquiler
+ 	
+ (Mas o menos los campos son variables)
+ 
+ Objetivo: Construir una casa con spring

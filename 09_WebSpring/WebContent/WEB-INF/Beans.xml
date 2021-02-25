@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<bean id="mensajeSingleton" class="objetos.Mensaje">
+		<property name="cuerpo" value="Cuerpo singleton"></property>
+	</bean>
+	<bean id="mensajePrototype" class="objetos.Mensaje" scope="prototype">
+		<property name="cuerpo" value="Cuerpo prototype"></property>
+	</bean>
+	<bean id="mensajeRequest" class="objetos.Mensaje" scope="request">
+		<property name="cuerpo" value="Cuerpo request"></property>
+	</bean>
+	<bean id="mensajeSession" class="objetos.Mensaje" scope="session">
+		<property name="cuerpo" value="Cuerpo session"></property>
+	</bean>
+	
+</beans>

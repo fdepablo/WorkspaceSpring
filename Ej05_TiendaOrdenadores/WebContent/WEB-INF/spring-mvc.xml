@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd
+		http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-4.3.xsd">
+		
+	<!--  Que buscque clases y metodos anotaos con las anotaciones de spring Ej: @Component y sus hijas -->
+	<context:component-scan base-package="controlador, entidades, gestor, DAO"></context:component-scan>
+		
+	<!--  COn esta anotacion le decimos que ademas de scanear anotaciones de spring core busque anotaciones de mvc -->
+	<mvc:annotation-driven></mvc:annotation-driven>
+	
+	
+	<bean id="viewResolverJSP"
+		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<property name="prefix" value="/WEB-INF/vistas/"/>
+		<property name="suffix" value=".jsp"/>
+	</bean>
+	
+	
+	<bean id="listaProcesadores" class="java.util.LinkedList">
+		<constructor-arg>
+			<list>
+				<bean class="entidades.Procesador">
+					<property name="id" value="0"></property>
+					<property name="nombre" value="i7"></property>
+					<property name="marca" value="Intel"></property>
+					<property name="precio" value="300"></property>
+					<property name="frecuencia" value="3.0"></property>
+				</bean>
+				<bean class="entidades.Procesador">
+					<property name="id" value="1"></property>
+					<property name="nombre" value="A6"></property>
+					<property name="marca" value="AMD"></property>
+					<property name="precio" value="200.5"></property>
+					<property name="frecuencia" value="2.1"></property>
+				</bean>
+				<bean class="entidades.Procesador">
+					<property name="id" value="2"></property>
+					<property name="nombre" value="Intel Core i9-7920X X-series"></property>
+					<property name="marca" value="Intel"></property>
+					<property name="precio" value="1017.76"></property>
+					<property name="frecuencia" value="4.3"></property>
+				</bean>
+				
+
+			</list>
+		</constructor-arg>
+	</bean>
+	
+	
+	<bean id="listaDiscosDuros" class="java.util.LinkedList">
+		<constructor-arg>
+			<list>
+				<bean class="entidades.DiscoDuro">
+					<property name="id" value="0"></property>
+					<property name="nombre" value="Samsung 860 EVO MZ-76E250B/EU"></property>
+					<property name="marca" value="Samsung"></property>
+					<property name="precio" value="54.90"></property>
+					<property name="capacidad" value="250"></property>
+				</bean>
+				<bean class="entidades.DiscoDuro">
+					<property name="id" value="1"></property>
+					<property name="nombre" value="Toshiba Canvio Basics"></property>
+					<property name="marca" value="Toshiba"></property>
+					<property name="precio" value="68.8"></property>
+					<property name="capacidad" value="2000"></property>
+				</bean>
+				
+
+			</list>
+		</constructor-arg>
+	</bean>
+	
+	
+	<bean id="listaRams" class="java.util.LinkedList">
+		<constructor-arg>
+			<list>
+				<bean class="entidades.RAM">
+					<property name="id" value="0"></property>
+					<property name="nombre" value="Kingston KVR16LS11/4"></property>
+					<property name="marca" value="Kingston"></property>
+					<property name="precio" value="24.8"></property>
+					<property name="capacidad" value="4"></property>
+				</bean>
+				<bean class="entidades.RAM">
+					<property name="id" value="1"></property>
+					<property name="nombre" value="Crucial - Memoria RAM de 4 GB"></property>
+					<property name="marca" value="cRUCUAL"></property>
+					<property name="precio" value="25.95"></property>
+					<property name="capacidad" value="4"></property>
+				</bean>
+				
+
+			</list>
+		</constructor-arg>
+	</bean>
+
+</beans>

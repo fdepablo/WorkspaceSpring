@@ -1,0 +1,23 @@
+Ejercicio que podamos add coches a un array, pedidos por pantalla
+La aplicacion mostrará 2 opciones,
+	add coche
+	listar coches
+
+Si add un coche la aplicacion nos pedirá 
+matricula;
+marca;
+modelo;
+kilometros;
+
+En caso de listar nos mostrará todos los coches introducidos
+Se pide como requisito que la matricula tenga que sera mayor o
+igual que 10
+
+ Ampliacion
+------------
+Una vez visto colecciones, comparable y comparator, y el metodo equals
+podemos pedir más funcionalidad
+ 1- Que no puedan haber dos coches iguales en la lista (igualdad por matricula)
+ 2- Que podamos ordenar naturalmente los coches por matricula
+ 3- Que podamos ordenar los coches por marca
+ 4- Que podamos ordenar los coches por matricula

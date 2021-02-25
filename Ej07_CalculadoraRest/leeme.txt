@@ -1,0 +1,7 @@
+ Hacer un servicio rest que implemente las funciones de una
+calculadora (sumar,restar,multiplicar y dividir)
+
+ Un CRUD y se guardaran las operaciones en base de datos (jpa o jpa data)
+ Se devolveran los datos en json y en xml, segun el cliente los pida
+ Se habilitará una busqueda por tipo de operacion
+ Se tendrán en cuenta los codigos de respuesta (201 para creaciones, etc)

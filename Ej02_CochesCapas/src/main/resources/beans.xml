@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<bean id="listaMenu" class="java.util.ArrayList">
+		<constructor-arg>
+			<list>
+				<value>1 Alta coche</value>
+				<value>2 Listar coches</value>
+				<value>3 Ordenar por modelo</value>
+				<value>4 Ordenar por marca</value>
+				<value>5 Salir</value>
+			</list>
+		</constructor-arg>
+	</bean>
+	
+	<bean id="altaCoche" class="vista.presentacion.AltaCoche">
+		<property name="gc" ref="gestorCoche"></property>
+	</bean>
+	<bean id="salir" class="vista.presentacion.Salida">
+		<property name="gc" ref="gestorCoche"></property>
+	</bean>
+	<bean id="listar" class="vista.presentacion.ListarCoches">
+		<property name="gc" ref="gestorCoche"></property>
+	</bean>
+	<bean id="ordenarMarca" class="vista.presentacion.OrdenarMarca">
+		<property name="gc" ref="gestorCoche"></property>
+	</bean>
+	<bean id="ordenarModelo" class="vista.presentacion.OrdenarModelo">
+		<property name="gc" ref="gestorCoche"></property>
+	</bean>
+	
+	<bean id="mapaMenu" class="java.util.HashMap">
+		<constructor-arg>
+			<map key-type="java.lang.Integer" value-type="vista.presentacion.Casos2">
+				<entry key="1" value-ref="altaCoche"></entry>
+				<entry key="2" value-ref="listar"></entry>
+				<entry key="3" value-ref="ordenarModelo"></entry>
+				<entry key="4" value-ref="ordenarMarca"></entry>
+				<entry key="5" value-ref="salir"></entry>
+			</map>
+		</constructor-arg>
+	</bean>
+
+	<bean id="coche" class="modelo.entidades.Coche" scope="prototype"></bean>
+	
+	<bean id="listaCoches" class="java.util.ArrayList"></bean>
+	
+	<bean id="daoCoche" class="modelo.persistencia.DaoCoche">
+		<property name="listaCoches" ref="listaCoches"></property>
+	</bean>
+	
+	<bean id="gestorCoche" class="modelo.negocio.GestorCoche">
+		<property name="daoCoche" ref="daoCoche"></property>
+	</bean>
+
+</beans>
