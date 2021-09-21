@@ -31,5 +31,9 @@ public class Persona {
 		this.direccion = direccion;
 	}
 	
+	@Override
+	public String toString() {
+		return "Persona [nombre=" + nombre + ", edad=" + edad + ", peso=" + peso + ", direccion=" + direccion + "]";
+	}
 	
 }

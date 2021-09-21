@@ -9,9 +9,9 @@
 	la popiedad lilstaPeliculas de la clase dao daria un ArrayList por defecto
 	pero !Ojo! nos add una pelicula vacia
 	Lo mejor para esto es hacer un new en el dao y listo
-	Y aquí solo dejar el component-scan
 	 -->
-	<bean id="listaPeliculas" class="java.util.ArrayList"></bean>
+	<bean id="listaPeliculas" class="java.util.ArrayList">
+	</bean>
 	
 	<bean id="numeroMaximo" class="java.lang.Integer">
 		<constructor-arg value="2"></constructor-arg>

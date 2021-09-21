@@ -4,13 +4,13 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
 	<bean id="persona" 
-		class="ejemplo6.Persona" 
+		class="ejemplo06.Persona" 
 		init-method="inicializar"
 		destroy-method="destruir">
 	</bean>
 	
 	<bean id="personaBean" 
-		class="ejemplo6.Persona" 
+		class="ejemplo06.Persona" 
 		init-method="inicializar"
 		destroy-method="destruir"
 		scope="prototype">

@@ -4,7 +4,7 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
 	<!-- Sigleton -->
-	<bean id="mensajeBean" class="ejemplo1.Mensaje">
+	<bean id="mensajeBean" class="ejemplo01.Mensaje">
 		<property name="cuerpo" value="Cuerpo inicial"></property>
 		<property name="firma" value="Espinete"></property>
 	</bean>

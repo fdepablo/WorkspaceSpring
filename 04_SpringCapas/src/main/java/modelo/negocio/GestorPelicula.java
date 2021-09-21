@@ -5,7 +5,7 @@ import java.util.List;
 import modelo.entidades.Pelicula;
 import modelo.persistencia.DAOPelicula;
 
-public class GestorPeliculas {
+public class GestorPelicula {
 	
 	private DAOPelicula daoPelicula;
 	

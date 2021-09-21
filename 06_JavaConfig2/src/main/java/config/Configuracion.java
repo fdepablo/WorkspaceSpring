@@ -3,6 +3,8 @@ package config;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.annotation.Resource;
+
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -10,7 +12,7 @@ import org.springframework.context.annotation.Scope;
 
 import modelo.entidades.Director;
 import modelo.entidades.Pelicula;
-import modelo.negocio.GestorPeliculas;
+import modelo.negocio.GestorPelicula;
 import modelo.persistencia.DAOPelicula;
 
 //Esta anotacion decimos que esta clase va a llevar la 
@@ -29,51 +31,29 @@ public class Configuracion {
 	
 	//Aqui siempre se intentará hacer una inyección a los argumentos
 	//de entrada de algun bean que exista en el contenedor de spring
-	//es decir, un autowire.
+	//es decir, un autowire de manera automática.
 	//Si no pondemos @Qualifer, el autowire sera por tipo, en caso
-	//contrario el autowire sera por nombre o id
+	//de que haya varios el autowire sera por nombre
 	@Bean("pelicula")
 	@Scope("prototype")
 	public Pelicula pelicula(@Qualifier("directorBean") Director director){
 		Pelicula pelicula = new Pelicula();
-		//podemos hacerlo así
-		//pelicula.setDirector(getDirector());
 		pelicula.setDirector(director);
 		return pelicula;
-	}
-	
-	@Bean("listaPeliculas")
-	public List<Pelicula> listaPeliculas(){
-		List<Pelicula> arrayPeliculas = new ArrayList<>();
-		return arrayPeliculas;
-	}
-	
-	//Si aqui no ponemos @Qualifier, inyectará un ArrayList
-	//(hara un autowire por tipo)
-	//que no sera el arrayList de la lista de peliculas, sera
-	//otro objeto ArrayList. Además, por defecto, tambien
-	//meterá un bean pelicula en el array (se puede ver en la
-	//documentacion de la etiqueta @Autowire)
+	}	
+
 	@Bean("daoPelicula")
-	public DAOPelicula getDaoPelicula(@Qualifier("listaPeliculas") 
-										List<Pelicula> listaPeliculas) {
+	public DAOPelicula getDaoPelicula() {
 		DAOPelicula dao = new DAOPelicula();
-		dao.setListaPelicula(listaPeliculas);
+		dao.setListaPelicula(new ArrayList<Pelicula>());
 		dao.setNumeroMaximoPeliculas(2);
-		System.out.println(listaPeliculas.size());
 		return dao;
 	}
 	
 	@Bean("gestorPeliculas")
-	public GestorPeliculas getGestorPeliculas(DAOPelicula dao) {
-		GestorPeliculas gp = new GestorPeliculas();
+	public GestorPelicula getGestorPeliculas(DAOPelicula dao) {
+		GestorPelicula gp = new GestorPelicula();
 		gp.setDaoPelicula(dao);
 		return gp;
 	}
 }
-
-
-
-
-
-

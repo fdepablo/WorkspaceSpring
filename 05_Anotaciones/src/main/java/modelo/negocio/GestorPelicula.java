@@ -9,7 +9,7 @@ import modelo.entidades.Pelicula;
 import modelo.persistencia.DAOPelicula;
 
 @Service
-public class GestorPeliculas {
+public class GestorPelicula {
 	
 	@Autowired
 	private DAOPelicula daoPelicula;

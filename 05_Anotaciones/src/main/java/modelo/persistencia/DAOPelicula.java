@@ -20,7 +20,7 @@ public class DAOPelicula {
 	//ni siquiera si ponemos un @Qualifier para hacer la busqueda por id
 	//ya que el ArrayList generico que inyecta tambien intentaria
 	//una pelicula con ese nombre de @Qualifier (la verdad es que es una
-	//cosa muy rara..., spring siempre inicializa dicho array por defecto
+	//cosa extraña..., spring inicializa dicho array por defecto
 	//con un objeto del tipo de la lista...). Esto se puede solucionar 
 	//poniendo la anotacion @Autowire pero la REFERENCIA 
 	//DEBE de ser del tipo ArrayList (cambiar List por ArrayList)
@@ -34,9 +34,6 @@ public class DAOPelicula {
 	private List<Pelicula> listaPeliculas;
 	@Autowired
 	private int numeroMaximoPeliculas;
-	//TAmbien podriamos poner algo así en vez de autowire
-	//@Value("3")
-	
 	
 	/**
 	 * Metodo que inserta una pelicula a la lista

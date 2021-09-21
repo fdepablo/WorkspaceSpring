@@ -1,4 +1,3 @@
-
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
@@ -6,12 +5,11 @@
 
 	<!-- Autowire es una propiedad para auto inyectar objetos
 		Spring buscara un objeto acorde para inyectar en todas
-		las propiedades que pueda. Dos tipos principales:
-			byName: El nombre del bean de la propiedad 
-			tiene que coincidir con el id del bean que queremos inyectar
-			byType: El tipo del bean de la propiedad tiene
+		las propiedades que pueda. dos tipos principales:
+			1- byType: El tipo del bean de la propiedad tiene
 				ue coincidir con el tipo del bean que queremos inyectar
-	
+			2- byName: El nombre del bean de la propiedad 
+			tiene que coincidir con el id del bean que queremos inyectar
 	 -->
 	 
 	 
@@ -21,23 +19,23 @@
 	 	Si lo hacemos byType, dará una excepcion ya que hay dos posibles
 	 	candidatos a inyectar, "direccion2" y "direccion"
 	  -->
-	<bean id="persona" class="ejemplo8.Persona" autowire="byName">
+	<bean id="persona" class="ejemplo08.Persona" autowire="byName">
 		<property name="nombre" value="Bob Esponja"></property>
 		<property name="edad" value="50"></property>
 		<property name="peso" value="0.200"></property>
 	</bean>
 	
-	<bean id="direccion2" class="ejemplo8.Direccion">
+	<bean id="direccion" class="ejemplo08.Direccion">
 		<property name="tipoVia" value="Piña"></property>
 		<property name="nombreVia" value="Debajo del mar"></property>
 		<property name="cp" value="desconocido"></property>
 		<property name="pais" value="Aguas Internacionales"></property>
 	</bean>
 	
-	<bean id="direccion" class="ejemplo8.Direccion">
-		<property name="tipoVia" value="Piña"></property>
-		<property name="nombreVia" value="Debajo del mar"></property>
-		<property name="cp" value="desconocido"></property>
-		<property name="pais" value="Aguas Internacionales"></property>
+	<bean id="direccion2" class="ejemplo08.Direccion">
+		<property name="tipoVia" value="Naranja"></property>
+		<property name="nombreVia" value="Arriba de la montaña"></property>
+		<property name="cp" value="34567"></property>
+		<property name="pais" value="Conchinchina"></property>
 	</bean>
 </beans>

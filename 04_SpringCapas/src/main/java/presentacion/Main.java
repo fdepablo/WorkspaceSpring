@@ -10,7 +10,7 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import modelo.entidades.Director;
 import modelo.entidades.Pelicula;
-import modelo.negocio.GestorPeliculas;
+import modelo.negocio.GestorPelicula;
 
 public class Main {
 
@@ -23,7 +23,7 @@ public class Main {
 	
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
-		String continuar = "si";
+		String continuar = "s";
 		
 		do {
 			System.out.println("Rellene campos(titulo, genero,director");
@@ -40,8 +40,8 @@ public class Main {
 			pelicula.setTitulo(titulo);
 			pelicula.setGenero(genero);
 			
-			GestorPeliculas gp = 
-					context.getBean("gestorPeliculas",GestorPeliculas.class);
+			GestorPelicula gp = 
+					context.getBean("gestorPelicula",GestorPelicula.class);
 			
 			boolean respuesta = gp.insertar(pelicula);
 			System.out.println(respuesta);
@@ -49,7 +49,7 @@ public class Main {
 			List<Pelicula> listaPeliculas = gp.listar();
 			System.out.println(listaPeliculas);
 			continuar = sc.nextLine();
-		}while(continuar.equals("si"));
+		}while(continuar.equals("s"));
 	}
 
 }

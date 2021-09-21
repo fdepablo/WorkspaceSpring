@@ -11,7 +11,7 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 import config.Configuracion;
 import modelo.entidades.Director;
 import modelo.entidades.Pelicula;
-import modelo.negocio.GestorPeliculas;
+import modelo.negocio.GestorPelicula;
 
 public class Main06 {
 
@@ -24,10 +24,10 @@ public class Main06 {
 	}
 	
 	public static void main(String[] args) {
-		GestorPeliculas gp = 
-				context.getBean("gestorPeliculas",GestorPeliculas.class);
+		GestorPelicula gp = 
+				context.getBean("gestorPelicula",GestorPelicula.class);
 		Scanner sc = new Scanner(System.in);
-		String continuar = "si";
+		String continuar = "s";
 		int contador = 0;
 		List<Pelicula> listaPeliculas = gp.getDaoPelicula().getListaPelicula();
 		
@@ -53,13 +53,12 @@ public class Main06 {
 			
 			boolean respuesta = gp.insertar(pelicula);
 			System.out.println(respuesta);
-			System.out.println("listapeliculas");
 			/*List<Pelicula> listaPeliculas = 
 					context.getBean("listaPeliculas",List.class);*/
 			listaPeliculas = gp.getDaoPelicula().getListaPelicula();
 			System.out.println(listaPeliculas);
 			continuar = sc.nextLine();
-		}while(continuar.equals("si"));
+		}while(continuar.equals("s"));
 	}
 
 }

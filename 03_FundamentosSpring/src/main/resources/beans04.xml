@@ -4,30 +4,30 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
 	<!-- Sigleton -->
-	<bean id="personaBean" class="ejemplo4.Persona" scope="prototype">
+	<bean id="personaBean" class="ejemplo04.Persona" scope="prototype">
 		<property name="edad" value="18"></property>
 	</bean>
 	
-	<bean id="direccionPaco" class="ejemplo4.Direccion">
+	<bean id="direccionPaco" class="ejemplo04.Direccion">
 		<property name="nombreVia" value="Jogüarts"></property>
 		<property name="tipoVia" value="isla"></property>
 		<property name="cp" value="95768"></property>
 		<property name="pais" value="Nunca Jamas"></property>
 	</bean>
 	
-	<bean id="paco" class="ejemplo4.Persona" scope="singleton">
+	<bean id="paco" class="ejemplo04.Persona" scope="singleton">
 		<property name="nombre" value="Paco"></property>
 		<property name="edad" value="50"></property>
 		<property name="peso" value="100"></property>
 		<property name="direccion" ref="direccionPaco"></property>
 	</bean>
 	
-	<bean id="marta" class="ejemplo4.Persona">
+	<bean id="marta" class="ejemplo04.Persona">
 		<property name="nombre" value="Marta"></property>
 		<property name="edad" value="25"></property>
 		<property name="peso" value="70.5"></property>
 		<property name="direccion">
-			<bean class="ejemplo4.Direccion">
+			<bean class="ejemplo04.Direccion">
 				<property name="nombreVia" value="Gran Via"></property>
 				<property name="tipoVia" value="calle"></property>
 				<property name="cp" value="28229"></property>

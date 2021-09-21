@@ -3,15 +3,15 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-	<bean id="arma_1" class="ejemplo2.Espada">
+	<bean id="arma_1" class="ejemplo09.Espada">
 		<property name="tipo" value="cimitarra"></property>
 	</bean>
 	
-	<bean id="arma_2" class="ejemplo2.Arco">
+	<bean id="arma_2" class="ejemplo09.Arco">
 		<property name="tipo" value="ballesta"></property>
 	</bean>
 	
-	<bean id="guerrero" class="ejemplo2.Guerrero">
+	<bean id="guerrero" class="ejemplo09.Guerrero">
 		<property name="nombre" value="Conan"></property>
 		<property name="arma" ref="arma_2"></property>
 	</bean>

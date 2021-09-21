@@ -6,16 +6,20 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
+@Component
+@Scope(value="prototype")
 public class Pelicula {
 	private int id;
-	private String titulo;
+	private String titulo = "La guerra de las galaxias";
 	private String genero;
 	
-	//por defecto autowired es por tipo
+	//por defecto autowired es byType y si hay varios objetos del mismo
+	//tipo haria un autowired byName, si no hubiera ninguno, arrojaría
+	//una excepción
 	@Autowired
-	//si queremos hacerlo por id o name utilizaremos la
-	//etiqueta qualifier
-	//@Qualifier("directorBean")
+	//si queremos hacerlo por id utilizaremos la
+	//etiqueta qualifier, ademas de @Autowire
+	@Qualifier("directorBean")
 	private Director director;
 	
 	public int getId() {

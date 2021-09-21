@@ -5,8 +5,9 @@ import java.util.List;
 import java.util.Scanner;
 
 import org.springframework.context.ApplicationContext;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
+import config.Configuracion;
 import modelo.entidades.Pelicula;
 import modelo.negocio.GestorPelicula;
 
@@ -16,7 +17,8 @@ public class MainAnotaciones {
 	
 	static {
 		context = 
-				new ClassPathXmlApplicationContext("beans.xml");
+				new AnnotationConfigApplicationContext
+				(Configuracion.class);
 	}
 	
 	public static void main(String[] args) {
@@ -50,5 +52,7 @@ public class MainAnotaciones {
 			System.out.println("¿Desea continuar?");
 			continuar = sc.nextLine();
 		}while(continuar.equals("s"));
+		
+		sc.close();
 	}
 }

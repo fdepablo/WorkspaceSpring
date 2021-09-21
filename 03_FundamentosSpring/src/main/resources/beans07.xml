@@ -14,20 +14,20 @@
 		</constructor-arg>
 	</bean>
 	
-	<bean id="persona1" class="ejemplo7.Persona">
+	<bean id="persona1" class="ejemplo07.Persona">
 		<property name="nombre" value="Harry Calahan"></property>
 		<property name="edad" value="75"></property>
 	</bean>
 	
-	<bean id="persona2" class="ejemplo7.Persona">
+	<bean id="persona2" class="ejemplo07.Persona">
 		<property name="nombre" value="Bud Spencer"></property>
 		<property name="edad" value="85"></property>
 	</bean>
 	
 	<bean id="listaPersonas" class="java.util.ArrayList">
 		<constructor-arg>
-			<list value-type="ejemplo7.Persona">
-				<bean class="ejemplo7.Persona">
+			<list value-type="ejemplo07.Persona">
+				<bean class="ejemplo07.Persona">
 					<property name="nombre" value="Ramon"></property>
 					<property name="edad" value="70"></property>
 				</bean>
@@ -39,10 +39,10 @@
 	
 	<bean id="mapaPersonas" class="java.util.HashMap">
 		<constructor-arg>
-			<map key-type="java.lang.Integer" value-type="ejemplo7.Persona" >
+			<map key-type="java.lang.Integer" value-type="ejemplo07.Persona" >
 				<entry key="1" value-ref="persona1"></entry>
 				<entry key="2">
-					<bean class="ejemplo7.Persona">
+					<bean class="ejemplo07.Persona">
 						<property name="nombre" value="Pato Donald"></property>
 						<property name="edad" value="65"></property>
 					</bean>
@@ -53,10 +53,10 @@
 	</bean>
 	
 	
-	<bean id="colecciones" class="ejemplo7.Colecciones">
+	<bean id="colecciones" class="ejemplo07.Colecciones">
 		<property name="listaPersonas">
 			<list>
-				<bean class="ejemplo7.Persona">
+				<bean class="ejemplo07.Persona">
 					<property name="nombre" value="Ramon"></property>
 					<property name="edad" value="70"></property>
 				</bean>
@@ -74,7 +74,7 @@
 			<map key-type="java.lang.Integer" value-type="ejemplo7.Persona" >
 				<entry key="1" value-ref="persona1"></entry>
 				<entry key="2">
-					<bean class="ejemplo7.Persona">
+					<bean class="ejemplo07.Persona">
 						<property name="nombre" value="Pato Donald"></property>
 						<property name="edad" value="50"></property>
 					</bean>
