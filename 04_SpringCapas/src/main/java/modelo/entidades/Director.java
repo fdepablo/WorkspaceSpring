@@ -3,6 +3,7 @@ package modelo.entidades;
 public class Director {
 	private int id;
 	private String nombre;
+	
 	public int getId() {
 		return id;
 	}
@@ -15,10 +16,9 @@ public class Director {
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
 	}
+	
 	@Override
 	public String toString() {
 		return "Director [id=" + id + ", nombre=" + nombre + "]";
-	}
-	
-	
+	}	
 }

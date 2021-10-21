@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<bean id="director" 
+		class="modelo.entidades.Director" 
+		scope="prototype">
+		<property name="nombre" value=""></property>
+	</bean>
+	
+	<!-- Ya que la pelicula necesita un director, se lo inyectamos -->
+	<bean id="pelicula"
+		class="modelo.entidades.Pelicula"
+		scope="prototype" autowire="byType">
+	</bean>
+	
+	<bean id="listaPeliculas" class="java.util.ArrayList"></bean>
+	
+	<bean id="daoPelicula" class="modelo.persistencia.DaoPelicula">
+		<property name="numeroMaximoPeliculas" value="3"></property>
+		<property name="listaPelicula" ref="listaPeliculas"></property>
+	</bean>	
+	
+	<bean id="gestorPelicula" class="modelo.negocio.GestorPelicula">
+		<property name="daoPelicula" ref="daoPelicula"></property>
+	</bean>
+</beans>

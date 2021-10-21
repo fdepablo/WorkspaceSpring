@@ -4,7 +4,11 @@ import java.util.List;
 
 import modelo.entidades.Pelicula;
 
-public class DAOPelicula {
+//En este caso estoy simulando una persistencia, realmente lo que tenemos
+//es un array en memoria que guarda las peliculas
+//Tambien para darle un poco más de complejidad establecemos un numero 
+//maximo de peliculas que podemos tener guardadas
+public class DaoPelicula {
 	private List<Pelicula> listaPelicula;
 	private int numeroMaximoPeliculas;
 	
@@ -27,6 +31,9 @@ public class DAOPelicula {
 	}
 
 	
+	/*
+	 * Los getters y setters para inyectar las dependecias
+	 */
 	public List<Pelicula> getListaPelicula() {
 		return listaPelicula;
 	}

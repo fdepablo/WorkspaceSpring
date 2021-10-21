@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<!-- A veces nos interesa tener un mayor control sobre el ciclo de vida de los
+	objetos en Spring, cuando se dan de alta o cuando se dan de baja.
+	
+	Para ello podemos declarar metodos de iniciacion y de destruccion.
+	
+	Esta medida viene como posible solucion a que nunca tenemos la certeza
+	de cuando va a venir el recolector de basura a borrar un objeto.
+	
+    -->
+	<bean id="steve" class="ejemplo06.Persona" 
+		init-method="inicializar"
+		destroy-method="destruir">
+		<property name="nombre" value="Steve Roguer"></property>
+	</bean>
+	
+	<bean id="persona" class="ejemplo06.Persona" 
+		init-method="inicializar"
+		destroy-method="destruir">
+	</bean>
+	
+	<!-- Los objetos prototipados no se ejecutará su metodo de destruir -->
+	<bean id="personaBean" class="ejemplo06.Persona" 
+		init-method="inicializar"
+		destroy-method="destruir"
+		scope="prototype">
+		<property name="nombre" value="vacio"></property>
+	</bean>
+</beans>

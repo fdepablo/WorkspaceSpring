@@ -15,41 +15,48 @@ import modelo.negocio.GestorPelicula;
 public class Main {
 
 	private static ApplicationContext context;
-	
-	static {
-		context = 
-				new ClassPathXmlApplicationContext("bean.xml");
-	}
-	
-	public static void main(String[] args) {
+		
+	public static void main(String[] args) {		
+		context = new ClassPathXmlApplicationContext("applicationContext.xml");
+		
 		Scanner sc = new Scanner(System.in);
 		String continuar = "s";
 		
 		do {
-			System.out.println("Rellene campos(titulo, genero,director");
+			System.out.println("Rellene campos(titulo, genero, director:");
 			String titulo = sc.nextLine();
 			String genero = sc.nextLine();
 			String nombreDirector = sc.nextLine();
 			
+			//La pelicula me viene ya inyectada con el director.
+			//Una ventaja si tenemos objetos con muchas dependencias
 			Pelicula pelicula = context.getBean("pelicula",Pelicula.class);
 			pelicula.setId(1);
-			//Esto no da error porque la pelicula ya viene con un director
-			//inyectado. Una ventaja si tenemos muchos objetos que dependen
-			//de otros
 			pelicula.getDirector().setNombre(nombreDirector);
 			pelicula.setTitulo(titulo);
 			pelicula.setGenero(genero);
 			
 			GestorPelicula gp = 
 					context.getBean("gestorPelicula",GestorPelicula.class);
-			
-			boolean respuesta = gp.insertar(pelicula);
-			System.out.println(respuesta);
-			System.out.println("listapeliculas");
+			//Insertamos
+			int respuesta = gp.insertar(pelicula);
+			if(respuesta == 0) {
+				System.out.println("Pelicula Insertada");
+			}else if(respuesta == 1) {
+				System.out.println("El titulo esta vacio");
+			}else if(respuesta == 2) {
+				System.out.println("La lista esta llena");
+			}
+			//Listamos
 			List<Pelicula> listaPeliculas = gp.listar();
 			System.out.println(listaPeliculas);
+			
+			System.out.println("Desea continuar? s/n:");
 			continuar = sc.nextLine();
-		}while(continuar.equals("s"));
+		}while(continuar.equalsIgnoreCase("s"));
+		
+		System.out.println("Aplicacion finalizada");
+		sc.close();
 	}
 
 }

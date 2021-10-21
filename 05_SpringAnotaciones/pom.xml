@@ -1,0 +1,27 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>es.curso</groupId>
+  <artifactId>05_SpringAnotaciones</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  <properties>
+  	<!-- Esto lo hacemos para establecer la version de java que queremos usar en nuestro proyecto -->
+  	<maven.compiler.source>1.8</maven.compiler.source>
+  	<maven.compiler.target>1.8</maven.compiler.target>
+  	
+  	<!-- Para usar encoding UTF-8 en nuestro proyecto -->
+  	<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+  	<project.build.outputEncoding>UTF-8</project.build.outputEncoding>
+  	
+ 	<!-- Version de Spring --> 	
+  	<spring.framework.version>5.2.18.RELEASE</spring.framework.version>
+  </properties>
+  <dependencies>
+  	<!-- Metemos las librerias de Spring -->
+  	<!-- https://mvnrepository.com/artifact/org.springframework/spring-context -->
+	<dependency>
+	    <groupId>org.springframework</groupId>
+	    <artifactId>spring-context</artifactId>
+	    <version>${spring.framework.version}</version>
+	</dependency>  	
+  </dependencies>
+</project>

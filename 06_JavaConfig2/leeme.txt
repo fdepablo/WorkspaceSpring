@@ -1,2 +1,0 @@
-Se puede mandar despues de hacer este ejemplo que hagan
-el ejercicio de coches con javaconfig

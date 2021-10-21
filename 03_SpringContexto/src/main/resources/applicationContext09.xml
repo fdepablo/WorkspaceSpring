@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<bean id="espada" class="ejemplo09.Espada">
+		<property name="tipo" value="cimitarra"></property>
+	</bean>
+	
+	<bean id="arco" class="ejemplo09.Arco">
+		<property name="tipo" value="arco largo"></property>
+	</bean>
+	
+	<bean id="guerrero" class="ejemplo09.Guerrero">
+		<property name="nombre" value="Conan"></property>
+		<property name="arma" ref="arco"></property>
+	</bean>
+</beans>

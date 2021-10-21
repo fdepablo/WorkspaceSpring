@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<!-- 
+		Es posible que nuestros objetos no tengan el constructor por defecto
+		o simplemente queramos usar otro constructor que no sea el de por defecto
+	
+		Spring nos permite instanciar objetos tambien llamando a otros constructores
+		
+		Para ello usaremos la etiquete <constructor-arg>
+		
+		Estos ejemplos son con sigleton pero seria igual con prototype
+	 -->
+	<bean id="personaInner" class="ejemplo05.Persona">
+		<constructor-arg value="Pepe"></constructor-arg>
+		<constructor-arg value="45"></constructor-arg>
+		<constructor-arg value="67.5"></constructor-arg>
+		<constructor-arg>
+			<bean class="ejemplo05.Direccion">
+				<constructor-arg value="Calle"></constructor-arg>
+				<constructor-arg value="Diamante"></constructor-arg>
+				<constructor-arg value="28224"></constructor-arg>
+				<constructor-arg value="España"></constructor-arg>
+			</bean>
+		</constructor-arg>
+	</bean>
+	
+	<!-- Tambien podemos hacerlo por referencia -->
+	
+	<bean id="direccion" class="ejemplo05.Direccion">
+		<constructor-arg value="Calle"></constructor-arg>
+		<constructor-arg value="Gran Via"></constructor-arg>
+		<constructor-arg value="28224"></constructor-arg>
+		<constructor-arg value="España"></constructor-arg>
+	</bean>
+
+	<!-- Ademas los argumentos del constructor podemos decirle el orden -->
+	<bean id="persona" class="ejemplo05.Persona">
+		<constructor-arg index="1" value="60"></constructor-arg>
+		<constructor-arg index="2" value="57.5"></constructor-arg>
+		<constructor-arg index="0" value="Marta"></constructor-arg>
+		<constructor-arg index="3" ref="direccion"></constructor-arg>
+	</bean>
+</beans>

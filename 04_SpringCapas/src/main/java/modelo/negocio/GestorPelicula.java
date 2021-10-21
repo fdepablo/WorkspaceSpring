@@ -3,22 +3,29 @@ package modelo.negocio;
 import java.util.List;
 
 import modelo.entidades.Pelicula;
-import modelo.persistencia.DAOPelicula;
+import modelo.persistencia.DaoPelicula;
 
 public class GestorPelicula {
 	
-	private DAOPelicula daoPelicula;
+	private DaoPelicula daoPelicula;
 	
-	//Aqui posiblemente lo suyo seria mandar
-	//mas señales que true o false (un int) para así poder
-	//saber en la capa de cliente si ha fallado
-	//porque el titulo esta vacio (0), porque la bbdd
-	//esta llena (1) o todo ha ido bien (2)
-	public boolean insertar(Pelicula p) {
+	/**
+	 * Metodo que insertara una pelicula mediante el daoPelicula. La pelicula
+	 * no puede tener el titulo vacio para poder ser insertada
+	 * @param p la pelicula a insertar
+	 * @return 0 en caso de que hayamos podido insertar la pelicula, 1 en caso
+	 * de que el titulo este vacio y 2 en caso de la lista no admita más peliculas
+	 */
+	public int insertar(Pelicula p) {
 		if(p.getTitulo().equals("")) {
-			return false;
+			return 1;
 		}else {
-			return daoPelicula.insertar(p);
+			boolean insertada = daoPelicula.insertar(p);
+			if(insertada) {
+				return 0;
+			}else {
+				return 2;
+			}
 		}
 	}
 	
@@ -26,11 +33,12 @@ public class GestorPelicula {
 		return daoPelicula.listar();
 	}
 
-	public DAOPelicula getDaoPelicula() {
+	//Los getter y setter para las insertar las dependencias con el DaoPelicula
+	public DaoPelicula getDaoPelicula() {
 		return daoPelicula;
 	}
 
-	public void setDaoPelicula(DAOPelicula daoPelicula) {
+	public void setDaoPelicula(DaoPelicula daoPelicula) {
 		this.daoPelicula = daoPelicula;
 	}
 	

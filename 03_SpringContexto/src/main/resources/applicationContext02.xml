@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<!-- Simplemente cambiando la clase podemos cambiar el comportamiento de
+	nuestra aplicacion sin tocar una sola linea de codigo. -->
+	<bean id="imprimible" class="ejemplo02.ImprimirFichero">
+	</bean>
+</beans>
