@@ -36,7 +36,7 @@ public class ConfiguracionSpring {
 	//Incluso podriamos dar de alta objetos tambien en el XML.
 	
 	/*
-	 * Vamos a dar de alta un objeto de tio director y de scope prototipado
+	 * Vamos a dar de alta un objeto de tipo director y de scope prototipado
 	 * Para establecer el scope usaremos la etiqueta @Scope
 	 * Podemos cambiar el id por defecto que le da spring al bean con el 
 	 * atributo value de la anotacion @Bean

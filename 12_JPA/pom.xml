@@ -10,7 +10,7 @@
 
 	<properties>
 		<!-- Es una constante definida por nosotros -->
-		<spring.framework.version>5.1.6.RELEASE</spring.framework.version>
+		<spring.framework.version>5.2.5.RELEASE</spring.framework.version>
 
 		<!-- El código lo vamos a compilar con la versión 1.8 de Java -->
 		<maven.compiler.source>1.8</maven.compiler.source>
@@ -32,7 +32,9 @@
 			<artifactId>spring-context</artifactId>
 			<version>${spring.framework.version}</version>
 		</dependency>
-
+		
+		<!-- Metemos las librerías de hibernate, podríamos poner aqui las librerías
+		del ORM que quisierams -->
 		<!-- https://mvnrepository.com/artifact/org.hibernate/hibernate-core -->
 		<dependency>
 			<groupId>org.hibernate</groupId>
@@ -40,12 +42,17 @@
 			<version>5.4.2.Final</version>
 		</dependency>
 
+		<!-- Cuando queremos intregar un proyecto de JPA, o cualquier ORM, debemos
+		de usar librerías especificas de Spring para ayudarnos a integrarlo. -->
 		<!-- https://mvnrepository.com/artifact/org.springframework/spring-orm -->
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-orm</artifactId>
 			<version>${spring.framework.version}</version>
 		</dependency>
+		
+		<!-- Tambien es necesario meter las liberarías que nos ayudan a gestionar
+		la transaccionalidad -->
 		<!-- https://mvnrepository.com/artifact/org.springframework/spring-tx -->
 		<dependency>
 			<groupId>org.springframework</groupId>
@@ -54,16 +61,20 @@
 		</dependency>
 
 		<!-- https://mvnrepository.com/artifact/mysql/mysql-connector-java -->
-		<!-- para mysql -->
+		<!-- Ahora metemos los driver de la bbdd con la que nos vamos a contectar
+		Estas librerías serían para mysql -->
 		<dependency>
 			<groupId>mysql</groupId>
 			<artifactId>mysql-connector-java</artifactId>
 			<version>8.0.11</version>
 		</dependency>
+		
+		<!-- Estas serían las librerías si en lugar de mysql utilizaramos h2
 		<dependency>
 			<groupId>com.h2database</groupId>
 			<artifactId>h2</artifactId>
 			<version>1.4.197</version>
 		</dependency>
+		 -->
 	</dependencies>
 </project>
