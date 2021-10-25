@@ -66,7 +66,7 @@
 		<dependency>
 			<groupId>mysql</groupId>
 			<artifactId>mysql-connector-java</artifactId>
-			<version>8.0.11</version>
+			<version>8.0.26</version>
 		</dependency>
 		
 		<!-- Estas serían las librerías si en lugar de mysql utilizaramos h2
