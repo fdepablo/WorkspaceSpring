@@ -18,9 +18,7 @@ public class DaoPeliculaJpa implements DaoPelicula{
 	
 	@Override
 	public int insertar(Pelicula p) {
-		System.out.println(p.getId());
 		em.persist(p);
-		System.out.println(p.getId());
 		return p.getId();
 	}
 
@@ -39,10 +37,6 @@ public class DaoPeliculaJpa implements DaoPelicula{
 
 	@Override
 	public int borrar(int id) {
-		//con hiberante puro podemos borrar directamente el objeto pasado a la base de datos
-		//pero jpa solo trabaja con objetos que que esten dentro de contexto jpa
-		//por lo que tenemos que meter el objeto que queremos borrar primero en la cache
-		
 		Pelicula p = buscar(id);
 		em.remove(p);
 		return p.getId();
@@ -51,8 +45,6 @@ public class DaoPeliculaJpa implements DaoPelicula{
 	@SuppressWarnings("unchecked")
 	@Override
 	public List<Pelicula> listar() {
-		//para buscar una lista de peliculas tenemos que utilizar un lenguaje
-		//que se llama JPQL que es una mezcla de POO y SQL
 		return em.createQuery("select p from Pelicula p").getResultList();
 	}
 

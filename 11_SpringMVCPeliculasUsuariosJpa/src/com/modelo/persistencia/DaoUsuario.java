@@ -7,5 +7,5 @@ import com.modelo.entidades.Usuario;
 public interface DaoUsuario {
 	
 	public List<Usuario> listar();
-	public boolean validarUsuario(Usuario u);
+	public Usuario obtenerUsuarioPorUsername(String username);
 }

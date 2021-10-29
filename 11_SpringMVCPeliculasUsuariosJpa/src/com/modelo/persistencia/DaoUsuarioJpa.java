@@ -21,27 +21,19 @@ public class DaoUsuarioJpa implements DaoUsuario{
 	EntityManager em;
 	
 	@Override
+	@SuppressWarnings("unchecked")
 	public List<Usuario> listar() {
 		return em.createQuery("select u from Usuario u").getResultList();
 	
 	}
 
 	@Override
-	public boolean validarUsuario(Usuario u) {
-		String sQuery = "select u from Usuario u where u.nombre=:nombre"
-				+ " and u.password =:pass";
+	public Usuario obtenerUsuarioPorUsername(String username) {
+		String sQuery = "select u from Usuario u where u.nombre=:nombre";
 		Query query = em.createQuery(sQuery);
-		query.setParameter("nombre", u.getNombre());
-		query.setParameter("pass", u.getPassword());
-		List<Usuario> lista = query.getResultList();
-		//return !lista.isEmpty();
-		Random random = new Random();
-		int numero = random.nextInt(10);//numero entre 0 y n(excluido)
-		System.out.println("aleatorio: " + numero);
-		if(numero < 5)
-			return false;
-		else
-			return true;
+		query.setParameter("nombre", username);
+		Usuario usuario = (Usuario)query.getSingleResult();
+		return usuario;
 	}
 
 	

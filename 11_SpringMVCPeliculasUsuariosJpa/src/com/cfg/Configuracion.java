@@ -24,16 +24,17 @@ public class Configuracion {
 	@Bean
 	public DataSource dataSource() {
 		DriverManagerDataSource ds = new DriverManagerDataSource();
-		/* configuracion para mysql 8.0
+		
 		ds.setDriverClassName("com.mysql.cj.jdbc.Driver");
 		ds.setUrl("jdbc:mysql://localhost:3306/jpa?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC");
 		ds.setUsername("root");
-		ds.setPassword("root");*/
+		ds.setPassword("");
+		/* 
 		ds.setDriverClassName("org.h2.Driver");
 		//ds.setUrl("jdbc:h2:mem:pruebaJpa");
 		ds.setUrl("jdbc:h2:file:/home/pue/Downloads/jpaMvc");
 		ds.setUsername("sa");
-		ds.setPassword("");
+		ds.setPassword("");*/
 		return ds;
 	}
 
@@ -47,11 +48,12 @@ public class Configuracion {
 		entityManagerFactoryBean.setPackagesToScan("com.modelo.entidades");
 
 		Properties jpaProperties = new Properties();
-		/* mysql
+		
 		jpaProperties.put("hibernate.dialect", "org.hibernate.dialect.MySQL8Dialect");
-		*/
+		/*
 		jpaProperties.put("hibernate.dialect", "org.hibernate.dialect.H2Dialect");
-		jpaProperties.put("hibernate.hbm2ddl.auto", "update");//create-drop update
+		*/
+		jpaProperties.put("hibernate.hbm2ddl.auto", "create-drop");//create-drop update
 		jpaProperties.put("hibernate.show_sql", "true");
 		jpaProperties.put("hibernate.format_sql", "false");
 		entityManagerFactoryBean.setJpaProperties(jpaProperties);
