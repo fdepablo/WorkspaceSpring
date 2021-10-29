@@ -15,4 +15,4 @@
 		<input type="submit" value="mandar saludo"/>
 	</form>
 </body>
-</html>
+</html> 

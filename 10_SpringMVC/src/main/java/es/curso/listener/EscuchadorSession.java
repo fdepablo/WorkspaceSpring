@@ -1,4 +1,4 @@
-package listener;
+package es.curso.listener;
 
 import javax.servlet.annotation.WebListener;
 import javax.servlet.http.HttpSessionAttributeListener;

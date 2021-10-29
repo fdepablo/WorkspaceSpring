@@ -1,4 +1,4 @@
-package entidades;
+package es.curso.modelo.entidad;
 
 //https://www.baeldung.com/spring-mvc-session-attributes
 import java.util.ArrayList;
@@ -11,9 +11,8 @@ import org.springframework.web.context.WebApplicationContext;
 import org.springframework.web.context.annotation.SessionScope;
 
 @Component
-//@Scope("session")
 @SessionScope
-public class Saludos {
+public class GrupoSaludos {
 	private List<String> listaSaludos = new ArrayList<>();
 
 	public List<String> getListaSaludos() {
