@@ -4,15 +4,17 @@
   <welcome-file-list>
     <welcome-file>index.html</welcome-file>
   </welcome-file-list>
+  <!-- Le decimos a spring donde tiene que ir a buscar el fichero xml de configuracion -->
   <context-param>
     <param-name>contextConfigLocation</param-name>
     <param-value>
-           WEB-INF/Beans.xml
+           WEB-INF/appicationContext.xml
         </param-value>
   </context-param>
   
-  <!-- Estos listener son oyentes que estan escuchando cuando se inicia
-  el servidor tomcat. Su labor es arrancar el contexto de spring -->
+  <!-- Decimos a tomcar que cuando arranque carge el contexto de spring a partir de las siguientes
+  	clases
+   -->
   <listener>
     <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
   </listener>

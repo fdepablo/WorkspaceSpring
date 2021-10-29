@@ -9,9 +9,22 @@
 	<bean id="mensajePrototype" class="objetos.Mensaje" scope="prototype">
 		<property name="cuerpo" value="Cuerpo prototype"></property>
 	</bean>
+	<!-- El ciclo de vida de un objeto request esta asociado a la peticion HTTP, 
+		por cada peticion HTTP se creara un objeto request diferente, y morira
+		al final de la petion HTTP
+	 -->
 	<bean id="mensajeRequest" class="objetos.Mensaje" scope="request">
 		<property name="cuerpo" value="Cuerpo request"></property>
 	</bean>
+	
+	<!-- El cilo de vida de este objeto esta ligado a la sesion de usuario. 
+		El ciclo de vida de la sesion de un usuario es desde que se crea la sesion
+		, que por defecto en java ee se crea cuando entramos en un JSP y muere 
+		la sesion segun como este configurada en el servidor de aplicaciones, 
+		en tomcat por ejemplo dura por defecto 30 minutos desde la ultima
+		peticion HTTP. La id de sesion de usuario se guarda en una cookie que 
+		se manda en cada peticion HTTP al servidor
+	 -->
 	<bean id="mensajeSession" class="objetos.Mensaje" scope="session">
 		<property name="cuerpo" value="Cuerpo session"></property>
 	</bean>
