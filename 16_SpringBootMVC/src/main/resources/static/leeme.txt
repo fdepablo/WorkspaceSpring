@@ -1,6 +1,0 @@
-Aqui irian los recursos estaticos de nuestra aplicación
-jpg,gif
-css
-js
-html
-pdf
