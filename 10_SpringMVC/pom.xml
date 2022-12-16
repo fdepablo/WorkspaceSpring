@@ -24,7 +24,7 @@
 
 	<properties>
 		<!-- Es una constante definida por nosotros -->
-		<spring.framework.version>5.2.18.RELEASE</spring.framework.version>
+		<spring.framework.version>5.2.20.RELEASE</spring.framework.version>
 
 		<!-- Codificación del código en UTF-8 -->
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
